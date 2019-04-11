@@ -1,4 +1,8 @@
-# How to generate certificate on Unix
+# [In progress] How to generate certificate on Unix
+
+[This tutorial](https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/key-vault)
+only supports the procedure of adding Key Vault practices using
+a PowerShell script. The idea is to also support Unix platforms.
 
 ## Generating the files
 
