@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Do not check in azure key vault information
+**/azurekeyvault.json
+
 # User-specific files
 *.rsuser
 *.suo
