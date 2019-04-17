@@ -42,12 +42,13 @@ PS>  az group create -n $resourceGroupName -l $resourcesLocation
 ## 02 - Service Plan
 
 ```powershell
-PS> az appservice plan create -n <name> -g $resourceGroupName -l $resourcesLocation
+PS> az appservice plan create -n <name> -g $resourceGroupName -l $resourcesLocation --sku S1
 ```
 
 Where:
 
 - `<name>` is the App Service Plan name
+- We are using the `S1` SKU to leverage on [Deployment Slots](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots)
 
 ## 03 - App Service
 
