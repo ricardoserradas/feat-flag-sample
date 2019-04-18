@@ -58,7 +58,7 @@ PS> .\Setup-KeyVault.ps1 `
 Now that we have the Key Vault configured and the Connection String stored,
 it is time to leverage Key Vault to store our sensitive configuration settings.
 
-### Add the KeyVault capability to the App
+### Add the Key Vault capability to the App
 
 From ASP.Net Core 2.0 and above, we do not need to add any extra package
 to the project to use Azure Key Vault as a secret store. All we need
