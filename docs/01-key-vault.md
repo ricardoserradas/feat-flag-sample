@@ -6,17 +6,19 @@ This is the best practice to store application's sensitive data so you:
   - Not even by mistake
 - Do not store sensitive data on configuration files in your environment
 
-**Source**: https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/key-vault
+**Source**: [https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/key-vault](https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/key-vault)
 
 ## Create/Configure the Key Vault
 
 > Target platform: Windows
 >
-> So far, if you're operating on Linux or MacOS, please refer to [this link](01-key-vault-unix.md).
+> So far, if you're operating on Linux or MacOS,
+> please refer to [this link](01-key-vault-unix.md).
 
 First, do the following steps to have the `Setup-KeyVault.ps1` script:
 
-> I'm instructing you to clone my fork because the [Pull Request](https://github.com/mspnp/multitenant-saas-guidance/pull/108)
+> I'm instructing you to clone my fork because the
+> [Pull Request](https://github.com/mspnp/multitenant-saas-guidance/pull/108)
 > was not approved yet.
 
 - Clone `https://github.com/ricardoserradas/multitenant-saas-guidance.git`
@@ -24,23 +26,29 @@ First, do the following steps to have the `Setup-KeyVault.ps1` script:
 
 ```powershell
 # Go to the script folder
-PS>  cd multitenant-saas-guidance\scripts
+cd multitenant-saas-guidance\scripts
 
 # Create the Key Vault
-PS> .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name>> -ResourceGroupName $resourceGroupName -Location $resourcesLocation
+.\Setup-KeyVault.ps1 `
+  -KeyVaultName <<key vault name>> `
+  -ResourceGroupName $resourceGroupName `
+  -Location $resourcesLocation
 
 # Add the Web App ID to the Access policies
-# At this point, I needed to have my application already registered to the Azure Active Directory
-PS> .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name>> -ApplicationIds @("<<Surveys app id>>", "<<Surveys.WebAPI app ID>>")
+# At this point, I needed to have my application already
+# registered to the Azure Active Directory
+.\Setup-KeyVault.ps1 `
+  -KeyVaultName <<key vault name>> `
+  -ApplicationIds @("<<Surveys app id>>", "<<Surveys.WebAPI app ID>>")
 
 # Add the database connection string to the Key Vault
 # At this point, I needed to have my Azure SQL database already created
-PS> .\Setup-KeyVault.ps1 `
--SubscriptionId "<subscription-id>" `
--ResourceGroupName $resourceGroupName `
--KeyVaultName riserradff `
--KeyName Data--MainDatabaseConnectionString `
--KeyValue "<connection string to the Azure SQL database>"
+.\Setup-KeyVault.ps1 `
+  -SubscriptionId "<subscription-id>" `
+  -ResourceGroupName $resourceGroupName `
+  -KeyVaultName riserradff `
+  -KeyName Data--MainDatabaseConnectionString `
+  -KeyValue "<connection string to the Azure SQL database>"
 ```
 
 ### Improvements mapped
@@ -188,9 +196,7 @@ You'll also notice that we do not store it anywhere within our codebase.
 This is because of two reasons:
 
 > When developing locally, we're retrieving data from the
->
 > `appsettings.Development.json` file, which has no sensitive information
->
 > as you can see below:
 
 ```json
@@ -202,7 +208,8 @@ This is because of two reasons:
 Notice that here, `Data:MainDatabaseConnectionString` points to our
 sandbox SQL Local DB.
 
-> We're adding the Key Vault information to the application at **deployment time**.
+> We're adding the Key Vault information to
+> the application at **deployment time**.
 
 You can see below that we store the Key Vault information as Release Variables,
 which we can later have different values per Release Stage:
@@ -219,5 +226,6 @@ These values will be available to the app when
 mentioned above runs from the cloud.
 
 We're going to talk about this in detail when we reach the deployment strategy.
-So far, this is enough for you to **have sensitive data stored secretly on - and
-only - an Azure Key Vault**, and being accessed only from the cloud environments.
+So far, this is enough for you to **have sensitive data stored secretly
+on - and only - an Azure Key Vault**, and being
+accessed only from the cloud environments.

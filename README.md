@@ -15,3 +15,9 @@ see [Provisioning Resources](docs/00-provisioning-resources.md).
 ## Engineering practices reference
 
 - [Use Azure Key Vault to protect application secrets](docs/01-key-vault.md)
+
+## Components Health
+
+|Component|Build Status|
+|---------|------------|
+|Web App|[![Build Status](https://dev.azure.com/serradas-msft/Feature-Flag-Sample/_apis/build/status/ricardoserradas.feat-flag-sample?branchName=master)](https://dev.azure.com/serradas-msft/Feature-Flag-Sample/_build/latest?definitionId=51&branchName=master)|

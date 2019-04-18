@@ -1,0 +1,23 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      checkLatest: true
+      versionSpec: 10.x
+    displayName: "Use Node 10.x"
+  - bash: |
+        sudo npm install -g markdownlint-cli
+        sudo npm install jsonlint -g
+        sudo apt-get install pandoc
+    displayName: "Download packages"
+  - bash: |
+        markdownlint -c .markdownlint.json ./portal
+    displayName: "Linting all the docs"
+  - bash: |
+        markdownlint -c .markdownlint.json ./README.md
+    displayName: "Linting the main README"
