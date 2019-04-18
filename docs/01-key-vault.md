@@ -94,6 +94,8 @@ Notice the main difference: we add Azure Key Vault to the configuration
 inside the `ConfigureAppConfiguration` method. But only when
 `IsProduction()` is true.
 
+We'll see how and where we store the `KeyVault:*` values below.
+
 ### Inject an instance of `IConfiguration` to the App
 
 We're going to use Singleton to have an instance of `IConfiguration` available
@@ -211,6 +213,10 @@ And we're setting these values at deployment time on the
 `Deploy Azure App Service` task:
 
 ![App Service Task with App Settings](01-key-vault/app-service-task.jpg)
+
+These values will be available to the app when
+[this code](#Add-the-Key-Vault-capability-to-the-App)
+mentioned above runs from the cloud.
 
 We're going to talk about this in detail when we reach the deployment strategy.
 So far, this is enough for you to **have sensitive data stored secretly on - and
