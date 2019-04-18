@@ -20,4 +20,5 @@ see [Provisioning Resources](docs/00-provisioning-resources.md).
 
 |Component|Build Status|
 |---------|------------|
+|Docs|[![Build Status](https://dev.azure.com/serradas-msft/Feature-Flag-Sample/_apis/build/status/ricardoserradas.markdown-lint?branchName=master)](https://dev.azure.com/serradas-msft/Feature-Flag-Sample/_build/latest?definitionId=52&branchName=master)|
 |Web App|[![Build Status](https://dev.azure.com/serradas-msft/Feature-Flag-Sample/_apis/build/status/ricardoserradas.feat-flag-sample?branchName=master)](https://dev.azure.com/serradas-msft/Feature-Flag-Sample/_build/latest?definitionId=51&branchName=master)|
