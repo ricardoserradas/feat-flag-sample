@@ -58,7 +58,7 @@ PS> .\Setup-KeyVault.ps1 `
 Now that we have the Key Vault configured and the Connection String stored,
 it is time to leverage Key Vault to store our sensitive configuration settings.
 
-## Add the KeyVault capability to the App
+### Add the KeyVault capability to the App
 
 From ASP.Net Core 2.0 and above, we do not need to add any extra package
 to the project to use Azure Key Vault as a secret store. All we need
@@ -117,7 +117,7 @@ public Startup(IConfiguration configuration)
 services.AddSingleton<IConfiguration>(this.Configuration);
 ```
 
-## Use the singleton instance within the app
+### Use the singleton instance within the app
 
 Now that we have an instance of `IConfiguration` available for using
 within the app, we need to use Dependency Injection on our MVC controllers
@@ -141,7 +141,7 @@ public HomeController(IConfiguration configuration)
 }
 ```
 
-## Consume the Secrets from Azure Key Vault
+### Consume the Secrets from Azure Key Vault
 
 Once the instance is available within the controller, it is just a matter of
 using it. To do so, you can access Secrets like you were accessing values
@@ -177,7 +177,7 @@ The trick here is that this Secret is stored on the Key Vault as
 `Data--MainDatabaseConnectionString`. **So, `:` should be used as `--`
 on a Key Vault Secret name.**
 
-## Do not store your Key Vault information on any configuration file
+### Do not store your Key Vault information on any configuration file
 
 As you saw above, we need to retrieve the Key Vault information from the
 Application Settings when injecting it to the App Configuration.
