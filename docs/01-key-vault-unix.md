@@ -18,3 +18,7 @@ Where:
 - `<name>` is the name of the Azure Key Vault you're creating
 - `<app-id>` is the ID of the application you registered on your Azure Active Directory
 - `<database-connection-string>` is the connection string to access the database you created
+
+After you have your Key Vault configured properly, you can get back to the
+[main](01-key-vault.md#Using-the-Key-Vault-from-the-Web-App)
+to consume the Key Vault from the Web App.
