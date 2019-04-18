@@ -82,7 +82,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                 var builtConfig = config.Build();
 
                 config.AddAzureKeyVault(
-                    $"https://{builtConfig["KeyVault:Name"]}.vault.azure.net/", 
+                    $"https://{builtConfig["KeyVault:Name"]}.vault.azure.net/",
                     builtConfig["KeyVault:AppId"], 
                     builtConfig["KeyVault:AppSecret"]);
             }
