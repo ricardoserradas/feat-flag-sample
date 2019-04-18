@@ -19,6 +19,16 @@ namespace full_featflag_sample
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((context, config) => {
+                    if (context.HostingEnvironment.IsProduction()){
+                        var builtConfig = config.Build();
+
+                        config.AddAzureKeyVault(
+                            $"https://{builtConfig["KeyVault:Name"]}.vault.azure.net/", 
+                            builtConfig["KeyVault:AppId"], 
+                            builtConfig["KeyVault:AppSecret"]);
+                    }
+                })
                 .UseStartup<Startup>();
     }
 }

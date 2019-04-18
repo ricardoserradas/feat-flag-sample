@@ -5,13 +5,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using full_featflag_sample.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace full_featflag_sample.Controllers
 {
     public class HomeController : Controller
     {
+        private IConfiguration _configuration;
+        
+        public HomeController(IConfiguration configuration)
+        {
+            this._configuration = configuration;
+        }
+        
         public IActionResult Index()
         {
+            ViewBag.SomeKey = this._configuration.GetValue<string>("KeyVault:Name");
+            ViewBag.DataFromKeyVault = this._configuration.GetValue<string>("Data:MainDatabaseConnectionString");
+
             return View();
         }
 
