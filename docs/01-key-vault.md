@@ -66,6 +66,9 @@ cd multitenant-saas-guidance\scripts
 Now that we have the Key Vault configured and the Connection String stored,
 it is time to leverage Key Vault to store our sensitive configuration settings.
 
+> If you still did not create your Web App, refer to
+> [this guide](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2).
+
 ### Add the Key Vault capability to the App
 
 From ASP.Net Core 2.0 and above, we do not need to add any extra package
